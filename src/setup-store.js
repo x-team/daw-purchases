@@ -26,8 +26,7 @@ module.exports = function (dataPath) {
       users: require(path.join(dataPath, 'users')),
       products: require(path.join(dataPath, 'products'))
     }
-  }
-  catch (e) {
+  } catch (e) {
     console.log('- Generating new data')
     return generateData()
   }

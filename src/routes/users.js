@@ -2,7 +2,6 @@ var find = require('array-find')
 var sendJson = require('send-data/json')
 var url = require('url')
 
-
 module.exports = function (router, store) {
   var users = store.users
 
