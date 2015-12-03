@@ -26,16 +26,18 @@ function generateProduct () {
 
 function generatePurchases (users, products, maxPurchasesPerUser) {
   var numProducts = products.length
+  function generatePurchase (user) {
+    return {
+      id: getRandomInRange(1, 999999),
+      username: user.username,
+      productId: products[getRandomInRange(0, numProducts)].id,
+      date: moment().subtract(getRandomInRange(1000, 999999), 'seconds').toISOString()
+    }
+  }
 
   return [].concat.apply([], users.map(function (user) {
-    return [
-      {
-        id: getRandomInRange(1, 999999),
-        username: user.username,
-        product_id: products[getRandomInRange(0, numProducts)].id,
-        date: moment().subtract(getRandomInRange(1000, 999999), 'seconds').toISOString()
-      }
-    ]
+    var numPurchases = getRandomInRange(0, maxPurchasesPerUser)
+    return repeat(numPurchases, generatePurchase.bind(null, user))
   }))
 }
 
