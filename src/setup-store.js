@@ -1,12 +1,9 @@
 var faker = require('faker')
 var path = require('path')
 var faces = require('cool-ascii-faces').faces
+var getRandomInRange = require('./util/get-random-in-range')
 var moment = require('moment')
 var repeat = require('./util/repeat-func')
-
-function getRandomInRange (min, max) {
-  return Math.floor(Math.random() * (max-min)) + min;
-}
 
 function generateUser () {
   var email = faker.internet.email()
@@ -24,7 +21,7 @@ function generateProduct () {
     face: faces[getRandomInRange(0, faces.length)],
     price: getRandomInRange(1, 1234),
     size: getRandomInRange(12, 40)
-  };
+  }
 }
 
 function generatePurchases (users, products, maxPurchasesPerUser) {
@@ -48,7 +45,7 @@ function generateData () {
   var maxPurchasesPerUser = 10
   var users = repeat(numUsers, generateUser)
   var products = repeat(numProducts, generateProduct)
-  var purchases = generatePurchases(users, products, maxPurchasesPerUser);
+  var purchases = generatePurchases(users, products, maxPurchasesPerUser)
 
   return {
     users: users,
