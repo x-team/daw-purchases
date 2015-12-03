@@ -71,7 +71,8 @@ Now you can make API requests, eg: `curl -i localhost:8000/api/users/`
 {
   "id": (int),
   "face": (string),
-  "size": (int)
+  "size": (int),
+  "price": (int)
 }
 ```
 

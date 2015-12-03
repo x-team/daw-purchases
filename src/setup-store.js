@@ -1,6 +1,16 @@
 var faker = require('faker')
 var path = require('path')
+var faces = require('cool-ascii-faces').faces;
 var repeat = require('./util/repeat-func')
+
+
+function getRandomString () {
+  return (Math.random()).toString(36).substr(2)
+}
+
+function getRandomInRange (min, max) {
+  return Math.floor(Math.random() * (max-min)) + min;
+}
 
 function generateUser () {
   var email = faker.internet.email()
@@ -12,10 +22,21 @@ function generateUser () {
   }
 }
 
+function generateProduct () {
+  return {
+    id: getRandomInRange(0, 100000) + '-' + getRandomString(),
+    face: faces[getRandomInRange(0, faces.length)],
+    price: getRandomInRange(1, 1234),
+    size: getRandomInRange(12, 40)
+  };
+}
+
 function generateData () {
   var numUsers = 10
+  var numProducts = 20
   return {
-    users: repeat(numUsers, generateUser)
+    users: repeat(numUsers, generateUser),
+    products: repeat(numProducts, generateProduct)
   }
 }
 
