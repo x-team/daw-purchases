@@ -24,6 +24,7 @@ var server = http.createServer(function handler (req, res) {
 // ----
 // add routes
 
+require('./src/routes/products')(router, store)
 require('./src/routes/users')(router, store)
 
 // ----
