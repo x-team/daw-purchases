@@ -108,3 +108,5 @@ Now you can make API requests, eg: `curl -i localhost:8000/api/users/`
   "email": (string)
 }
 ```
+
+Maintained by the [developers at x-team](https://www.x-team.com) | [developer blog](https://www.x-team.com/blog/)
