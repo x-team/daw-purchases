@@ -32,7 +32,7 @@ Now you can make API requests, eg: `curl -i localhost:8000/api/users/`
   "purchases": [
     {
       "id": (int),
-      "product_id": (int),
+      "productId": (int),
       "username": (string),
       "date": (iso8601 string)
     },
@@ -41,10 +41,10 @@ Now you can make API requests, eg: `curl -i localhost:8000/api/users/`
 }
 ```
 
-### GET purchases/by_product/:product_id
+### GET purchases/by_product/:productId
 
 - params:
-  - product_id (int)
+  - productId (int)
   - ?limit (int)
 
 - response: same as `GET purchases/by_user/:username`
@@ -56,7 +56,7 @@ Now you can make API requests, eg: `curl -i localhost:8000/api/users/`
 ```
 {
   "username": (string)
-  "product_id": (int)
+  "productId": (int)
 }
 ```
 
